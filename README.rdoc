@@ -1,0 +1,65 @@
+= Tor
+
+Tor stands for 'Tenjin on Rails'.
+Tor is a Ruby on Rails plugin which enable views
+to be build on rbTenjin template engine.
+Tenjin is a very fast and full-featured
+template engine available in several script languages (incluing Ruby).
+
+== Tenjin
+
+http://www.kuwata-lab.com/tenjin/
+
+== Using
+
+Tor depends on the tenjin gem.
+Download then tenjin gem 
+from http://downloads.sourceforge.net/tenjin/tenjin-0.6.2.gem
+Go to the directory where the downloaded .gem file is and
+install the gem from it:
+
+  gem install tenjin --local
+
+It is strongly encouraged to add tenjin gem to the Rails project.
+In the config/environment.rb add a line like the following
+inside the config block:
+
+  config.gem "tenjin", :version => '~> 0.6.2'
+
+Then unpack the gem into your Rails project:
+
+  rake gems:unpack GEM=tenjin
+
+
+Next step is install Tor plugin:
+
+  ./script/plugin install git://github.com/luishurtado/tor.git
+
+== Examples
+
+Views with the <tt>.tenjin</tt> extension will automatically use Tenjin.
+
+The following is a Tenjin template:
+
+  Hello #{@name}!
+  <ul>
+  <?rb for item in @items ?>
+    <li>${item}</li>
+  <?rb end ?>
+  </ul>
+
+<tt><?rb ... ?></tt> represents embedded Ruby statements.
+(the <tt><% %></tt> in ERB).
+
+<tt>#{...}</tt> represents embedded Ruby expression. (the <%= %> in ERB).
+
+<tt>${...}</tt> represents embedded escaped (sanitized) Ruby expression.
+(the <%=h %> in ERB)
+
+
+== Authors
+
+Tor was created for Luis Hurtado to support
+a telecom project inside Assembla (www.assembla.com)
+
+Tor is released under the MIT license.
