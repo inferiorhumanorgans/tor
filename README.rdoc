@@ -10,7 +10,7 @@ template engine available in several script languages (incluing Ruby).
 
 http://www.kuwata-lab.com/tenjin/
 
-== Using
+== Installation
 
 Tor depends on the tenjin gem.
 Download then tenjin gem 
@@ -24,7 +24,7 @@ It is strongly encouraged to add tenjin gem to the Rails project.
 In the config/environment.rb add a line like the following
 inside the config block:
 
-  config.gem "tenjin", :version => '~> 0.6.2'
+  config.gem "tenjin", :version => '0.6.2'
 
 Then unpack the gem into your Rails project:
 
@@ -34,6 +34,13 @@ Then unpack the gem into your Rails project:
 Next step is install Tor plugin:
 
   ./script/plugin install git://github.com/luishurtado/tor.git
+
+== About cache files
+
+By default, rbTenjin will create .cache files in the same directory
+containing the view template.
+Tor changes this behavior and create .cache files under
+tmp/cache/tenjin directory if the Rails application.
 
 == Examples
 

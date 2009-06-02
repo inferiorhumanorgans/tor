@@ -1,4 +1,5 @@
 require 'tenjin'
+require 'fileutils'
 
 ActionView::Template.register_template_handler :tenjin, TenjinHandler
 
