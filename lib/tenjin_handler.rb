@@ -4,7 +4,7 @@ class TenjinHandler < ActionView::TemplateHandler
   def compile(template)
     directory = File.dirname(template.filename)
     filename = File.basename(template.filename)
-    cache_directory = "#{RAILS_ROOT}#{File::SEPARATOR}tmp#{File::SEPARATOR}cache#{File::SEPARATOR}tenjin"
+    cache_directory = "#{RAILS_ROOT}#{File::SEPARATOR}tmp#{File::SEPARATOR}cache#{File::SEPARATOR}tenjin#{File::SEPARATOR}"
 
     "RailsTenjinEngine.new(:path => ['#{directory}'], :cache_dir => '#{cache_directory}').render('#{filename}',self)"
   end
