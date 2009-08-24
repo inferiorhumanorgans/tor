@@ -12,7 +12,7 @@ class RailsTenjinEngine < Tenjin::Engine
   def cachename(filename)
     cache_filename = "#{@cache_dir}#{filename.gsub(RAILS_ROOT,'')}.cache"
     
-    unless test(?f, cache_filename)
+    unless File.exist?(cache_filename)
       FileUtils.mkdir_p(File.dirname(cache_filename))
     end
     
